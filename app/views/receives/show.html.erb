@@ -1,0 +1,13 @@
+<%= content_for :title_link do %> 
+  <%= link_to t('activerecord.models.receives') ,receives_path %> 
+<% end %> 
+
+<%= content_for :page_link do %> 
+  <%= link_to t('actions.detail') ,edit_receife_path(@receife) %> 
+<% end %> 
+
+<%= render 'data' %>
+
+<%= link_to t('actions.edit'), edit_receife_path(@receife), class:'btn btn-default' %>
+
+<%= link_to t('actions.back'), receives_path, class:'btn btn-default' %>

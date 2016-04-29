@@ -1,0 +1,56 @@
+
+  <div class="panel-body">
+
+      <div class="form-group">
+        <%= f.label :user_id , class:'col-sm-2 control-label' %>
+        <div class="col-sm-8">
+          <%= f.collection_select :user_id, User.all, :id, :to_s, {prompt: true},{class:'form-control'}  %>
+        </div>
+      </div>
+      <h4>Datos de la cuenta de retiro</h4>
+      
+       <%= f.fields_for :account_from do |af| %>
+      <div class="form-group">
+        <%= af.label :user_id , class:'col-sm-2 control-label' %>
+        <div class="col-sm-8">
+          <%= af.collection_select :user_id, User.all, :id, :to_s, {prompt: true},{class:'form-control'}  %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= af.label :bank_id , class:'col-sm-2 control-label' %>
+        <div class="col-sm-8">
+          <%= af.collection_select :bank_id, Bank.all, :id, :to_s, {prompt: true},{class:'form-control'}  %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= af.label :clabe, class:'col-sm-2 control-label'  %>
+        <div class="col-sm-8">
+          
+            <%= af.text_field :clabe, class:'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= af.label :name, class:'col-sm-2 control-label'  %>
+        <div class="col-sm-8">
+          
+            <%= af.text_field :name, class:'form-control' %>
+        </div>
+      </div>  
+       <% end %>
+   <h4>Datos de deposito</h4
+
+      <div class="form-group">
+        <%= f.label :bank_id , class:'col-sm-2 control-label' %>
+        <div class="col-sm-8">
+          <%= f.collection_select :bank_id, Bank.all, :id, :to_s, {prompt: true},{class:'form-control'}  %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :name, class:'col-sm-2 control-label'  %>
+        <div class="col-sm-8">
+          
+            <%= f.text_field :name, class:'form-control' %>
+        </div>
+      </div>
+  </div>

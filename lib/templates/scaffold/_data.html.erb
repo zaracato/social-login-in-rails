@@ -1,0 +1,12 @@
+<table class="table table-striped">
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+  <tr>
+    <td>
+      <strong><%%= t('simple_form.labels.<%= singular_table_name %>.<%= attribute.name %>') %>:</strong>
+    </td>
+    <td>
+      <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+    </td>
+  </tr>
+<% end -%>
+</table>

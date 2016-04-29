@@ -1,0 +1,28 @@
+<%= simple_form_for(@bank, html:{class:'form-horizontal'}) do |f| %>
+  <% if @bank.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bank.errors.count, "error") %> prohibited this bank from being saved:</h2>
+
+      <ul>
+      <% @bank.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="panel">
+    <div class="panel-heading">
+      <span class="panel-title"></span>
+    </div>
+          
+    <div class="panel-body">
+      <%= render "banks/fields", f:f %>
+    </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-8">
+    <%= f.submit t('actions.save')%>
+  </div>
+</div>
+<% end %>

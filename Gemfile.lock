@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 5a2b7b5bc683ae98a114958c3d1eb9c932234c56
+  revision: d84f8190edac8c28f942cd4b6c3e16086da9d7a2
   specs:
-    activeadmin (1.0.0.pre1)
+    activeadmin (1.0.0.pre2)
       arbre (~> 1.0, >= 1.0.2)
       bourbon
       coffee-rails
@@ -10,11 +10,12 @@ GIT
       formtastic_i18n
       inherited_resources (~> 1.6)
       jquery-rails
-      jquery-ui-rails (~> 5.0)
+      jquery-ui-rails
       kaminari (~> 0.15)
       rails (>= 3.2, < 5.0)
       ransack (~> 1.3)
       sass-rails
+      sprockets (< 4)
 
 GEM
   remote: https://rubygems.org/
@@ -66,15 +67,17 @@ GEM
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bootstrap-sass (3.1.0.2)
       sass (~> 3.2)
     bootstrap-sass-rails (3.1.0.0)
       bootstrap-sass (~> 3.1.0.0)
       railties (>= 3.2.0)
       sass-rails (>= 3.2.0)
-    bourbon (4.2.3)
+    bourbon (4.2.6)
       sass (~> 3.4)
-      thor
+      thor (~> 0.19)
     buftok (0.2.0)
     builder (3.2.2)
     byebug (5.0.0)
@@ -113,6 +116,8 @@ GEM
       rails (>= 3, < 5)
     daemons (1.2.3)
     database_cleaner (1.4.1)
+    debug_inspector (0.0.2)
+    declarative_authorization (0.5.7)
     devise (3.5.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -134,9 +139,9 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.9.10)
     formatador (0.2.5)
-    formtastic (3.1.3)
+    formtastic (3.1.4)
       actionpack (>= 3.2.13)
-    formtastic_i18n (0.4.1)
+    formtastic_i18n (0.6.0)
     gherkin (2.12.2)
       multi_json (~> 1.3)
     globalid (0.3.5)
@@ -218,6 +223,7 @@ GEM
     multipart-post (2.0.0)
     naught (1.0.0)
     nenv (0.2.0)
+    nested_form (0.3.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     notiffany (0.0.6)
@@ -253,9 +259,12 @@ GEM
     omniauth-twitter (1.2.0)
       json (~> 1.3)
       omniauth-oauth (~> 1.1)
+    openpay (1.0.10)
+      json
+      rest-client (~> 1.6.7)
     orm_adapter (0.5.0)
     pg (0.18.2)
-    polyamorous (1.2.0)
+    polyamorous (1.3.0)
       activerecord (>= 3.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -291,7 +300,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
-    ransack (1.6.6)
+    ransack (1.7.0)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
       activesupport (>= 3.0)
@@ -389,12 +398,14 @@ DEPENDENCIES
   activeadmin!
   airbrake
   better_errors
+  binding_of_caller
   bootstrap-sass-rails
   byebug
   carrierwave
   coffee-rails
   cucumber-rails
   database_cleaner
+  declarative_authorization
   devise
   eventmachine
   factory_girl_rails
@@ -405,9 +416,11 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   json
+  kaminari
   koala
   launchy
   linkedin
+  nested_form
   omniauth
   omniauth-facebook
   omniauth-github
@@ -415,6 +428,7 @@ DEPENDENCIES
   omniauth-linkedin-oauth2
   omniauth-oauth2
   omniauth-twitter
+  openpay
   pg
   quiet_assets
   rails (~> 4.2.3)
@@ -431,4 +445,4 @@ DEPENDENCIES
   uglifier
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

@@ -1,5 +1,14 @@
 SociaLoginRails::Application.routes.draw do
 
+  resources :cards
+  resources :addresses
+  resources :accounts
+  resources :tests
+  resources :bowins
+  resources :receives
+  resources :pays
+  resources :banks
+  resources :rails
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   get "pages/terms"

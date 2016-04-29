@@ -1,0 +1,53 @@
+
+<%%= content_for :title_link do %> 
+  <%%= link_to t('activerecord.models.<%= plural_table_name %>') ,<%= plural_table_name %>_path %> 
+<%% end %> 
+
+<%%= content_for :new_link do %> 
+  <%%= link_to t('actions.new'), new_<%= singular_table_name %>_path, class:'btn btn-primary btn-rounded'  %> 
+<%% end %> 
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+      <th><%%= t('simple_form.labels.<%= singular_table_name %>.<%= attribute.name %>') %></th>
+<% end -%>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+      <tr>
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+        <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+<% end -%>
+        <td><%%= link_to t('actions.show'), <%= singular_table_name %>, class:'btn btn-default'  %></td>
+        <td><%%= link_to edit_<%= singular_table_name %>_path(<%= singular_table_name %>), 
+          class:'btn btn-default ' do %>
+           <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+           <%% end %>
+        </td>
+        <td><%%= link_to  "/<%= plural_table_name %>/#{<%=singular_table_name%>.id}.json", method: :delete, remote: true, data: { confirm: '¿Está seguro?' },
+          class:'btn btn-danger delete-row ' do %>
+           <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+           <%% end %>
+        </td>
+      </tr>
+    <%% end %>
+  </tbody>
+
+  <tfoot>
+    <tr>
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+      <th><%%= t('simple_form.labels.<%= singular_table_name %>.<%= attribute.name %>') %></th>
+<% end -%>
+      <th colspan="3"></th>
+    </tr>
+  </tfoot>
+
+</table>
+<%%= paginate @<%= plural_table_name %> %>
+<br>
+

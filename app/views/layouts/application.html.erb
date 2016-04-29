@@ -10,7 +10,7 @@
   <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <a href="../" class="navbar-brand">Social Login</a>
+        <a href="../" class="navbar-brand">Pagos</a>
         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -19,31 +19,18 @@
       </div>
       <div class="navbar-collapse collapse" id="navbar-main">
         <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">DropDown <span class="caret"></span></a>
-            <ul class="dropdown-menu" aria-labelledby="themes">
-              <li><a tabindex="-1" href="/">Default</a></li>
-              <li class="divider"></li>
-              <li><a tabindex="-1" href="#/">Item 1</a></li>
-              <li><a tabindex="-1" href="#/">Item 2</a></li>
-              <li><a tabindex="-1" href="#/">Item 3</a></li>
-              <li><a tabindex="-1" href="#/">Item 4</a></li>
-              <li><a tabindex="-1" href="#/">Item 5</a></li>
-              <li><a tabindex="-1" href="#/">Item 6</a></li>
-
-            </ul>
-          </li>
+       
           <li>
-            <a href="">Help</a>
+            <a href="">Ayuda</a>
           </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
           <li><%= link_to current_user.name, current_user %></li>
-          <li><%= link_to "Logout", destroy_user_session_path %></li>
+          <li><%= link_to "Cerrar Sesión", destroy_user_session_path %></li>
           <% else %>
-          <li><%= link_to "Sign in", new_user_session_path %></li>
+          <li><%= link_to "Registrarse", new_user_session_path %></li>
           <% end %>
         </ul>
 

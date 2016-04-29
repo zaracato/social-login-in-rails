@@ -1,7 +1,51 @@
-<h1 style="color:green">Read me please....!!!</h1>
-<h2>Sample Application showing Social login Integration with Rails</h2>
-<p>This is a demo for the Social login with Twitter + Facebook + Linkedin + Github + Google + Devise</p>
-<p>Also If user is logged in that case he can link his other social accounts too. To test out the functionality of connecting other social account. Go to edit profile once you are logged in by clicking on your name in header and check status of logged in accounts and you can also link the account which are not yet connected. Click on those urls to connect those social networks</p>
-<p><i>There are lot of commented out gems in the Gemfile. I will recommend you to check out them too. They are one of the most common gems that I use in my various projects.</i></p>
-<p style="color:red">No spam will be sent on any of your social network. No posting ever. No emails ever. I promise :)</p>
+<h1 style="color:green">Pagina de inicio</h1>
+ <% if user_signed_in? %>
 
+      <div class="row row-padded row-bordered row-centered">
+    <div class="col-sm-12">
+      <div class="row m-b-lg">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+          <h3><strong>Administración de pagos</strong></h3>
+          <h4 class="m-b-lg">Recibe o realiza pagos recurrentes en segundos</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 m-b-lg">
+          <div class="panel panel-default panel-profile m-b-0">
+            <div class="panel-heading" style="background-image: url(//cdn.shopify.com/s/files/1/0691/5403/t/121/assets/insta-2.jpg?3719080539427352740);"></div>
+            <div class="panel-body text-center">
+              <img class="panel-profile-img" src="assets/728px-Transfer-Money-with-Western-Union-Step-7.jpg">
+              <h5 class="panel-title">Recibe pagos</h5>
+              <p class="m-b">Recibe pagos recurrentes, proporciona tu cuenta.</p>
+              <a href="bowins" target="_blank" class="btn btn-primary btn-sm m-b">
+                <span class="icon icon-add-user"></span>Ver mis cuentas
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 m-b-lg">
+          <div class="panel panel-default panel-profile m-b-0">
+            <div class="panel-heading" style="background-image: url(//cdn.shopify.com/s/files/1/0691/5403/t/121/assets/insta-1.jpg?3719080539427352740);"></div>
+            <div class="panel-body text-center">
+              <img class="panel-profile-img" src="assets/recibir.jpg">
+              <h5 class="panel-title">Realiza pagos</h5>
+              <p class="m-b">Agrega tu tarjeta para poder realizar pagos recurrentes de manera seguro</p>
+              <a href="pays" target="_blank" class="btn btn-primary btn-sm m-b">
+                <span class="icon icon-add-user"></span> Ver mis cuentas
+              </a>
+            </div>
+          </div>
+        </div>
+   
+      </div>
+    </div>
+  </div>
+    
+  <% else %>
+  <h2>Cobro y realización de pagos recurrentes</h2>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra condimentum nibh vel tempus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec quis dolor sit amet erat scelerisque tempor eu condimentum augue. Donec non velit in felis lacinia consectetur eu vitae odio. Nam vehicula urna nec molestie pellentesque. Vestibulum porta finibus eleifend. Nam blandit, ante ut consequat ultricies, nunc risus tristique nibh, auctor pretium leo orci nec tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam consectetur erat est, a placerat ipsum mollis sit amet. Cras vestibulum pharetra accumsan. </p>
+
+<p><%= link_to "Sign in", new_user_session_path %></p>
+          
+          <% end %>

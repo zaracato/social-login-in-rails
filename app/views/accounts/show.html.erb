@@ -1,0 +1,13 @@
+<%= content_for :title_link do %> 
+  <%= link_to t('activerecord.models.accounts') ,accounts_path %> 
+<% end %> 
+
+<%= content_for :page_link do %> 
+  <%= link_to t('actions.detail') ,edit_account_path(@account) %> 
+<% end %> 
+
+<%= render 'data' %>
+
+<%= link_to t('actions.edit'), edit_account_path(@account), class:'btn btn-default' %>
+
+<%= link_to t('actions.back'), accounts_path, class:'btn btn-default' %>

@@ -1,0 +1,55 @@
+
+<%= content_for :title_link do %> 
+  <%= link_to t('activerecord.models.accounts') ,accounts_path %> 
+<% end %> 
+
+<%= content_for :new_link do %> 
+  <%= link_to t('actions.new'), new_account_path, class:'btn btn-primary btn-rounded'  %> 
+<% end %> 
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th><%= t('simple_form.labels.account.user') %></th>
+      <th><%= t('simple_form.labels.account.bank') %></th>
+      <th><%= t('simple_form.labels.account.clabe') %></th>
+      <th><%= t('simple_form.labels.account.name') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accounts.each do |account| %>
+      <tr>
+        <td><%= account.user %></td>
+        <td><%= account.bank %></td>
+        <td><%= account.clabe %></td>
+        <td><%= account.name %></td>
+        <td><%= link_to t('actions.show'), account, class:'btn btn-default'  %></td>
+        <td><%= link_to edit_account_path(account), 
+          class:'btn btn-default ' do %>
+           <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+           <% end %>
+        </td>
+        <td><%= link_to  "/accounts/#{account.id}.json", method: :delete, remote: true, data: { confirm: '¿Está seguro?' },
+          class:'btn btn-danger delete-row ' do %>
+           <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+           <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <th><%= t('simple_form.labels.account.user') %></th>
+      <th><%= t('simple_form.labels.account.bank') %></th>
+      <th><%= t('simple_form.labels.account.clabe') %></th>
+      <th><%= t('simple_form.labels.account.name') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </tfoot>
+
+</table>
+<br>
+

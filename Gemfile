@@ -20,19 +20,20 @@ gem 'coffee-rails' # , '~> 4.0.0'
 gem 'intercom-rails'
 gem 'taps'
 gem 'activeadmin', github: 'gregbell/active_admin'
-
+gem 'kaminari'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
+#gem 'system_settings', git:'git@bitbucket.org:mlomeli/system_settings.git'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
-
+gem "declarative_authorization"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder' # , '~> 1.2'
-
+gem 'simple_form'
+gem "nested_form"
 gem 'devise'
 gem 'bootstrap-sass-rails'
 gem 'carrierwave'
@@ -52,7 +53,7 @@ gem 'rmagick'
 gem 'simple_form'
 gem 'pg'
 gem 'thin'
-
+gem "binding_of_caller"
 gem 'eventmachine' # , '>=1.07'
 
 group :development, :test do
@@ -121,3 +122,5 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'openpay'

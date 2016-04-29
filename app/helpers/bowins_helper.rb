@@ -1,0 +1,2 @@
+module BowinsHelper
+end

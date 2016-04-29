@@ -1,0 +1,65 @@
+
+<%= content_for :title_link do %> 
+  <%= link_to t('activerecord.models.addresses') ,addresses_path %> 
+<% end %> 
+
+<%= content_for :new_link do %> 
+  <%= link_to t('actions.new'), new_address_path, class:'btn btn-primary btn-rounded'  %> 
+<% end %> 
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th><%= t('simple_form.labels.address.line1') %></th>
+      <th><%= t('simple_form.labels.address.line2') %></th>
+      <th><%= t('simple_form.labels.address.line3') %></th>
+      <th><%= t('simple_form.labels.address.state') %></th>
+      <th><%= t('simple_form.labels.address.city') %></th>
+      <th><%= t('simple_form.labels.address.postal_code') %></th>
+      <th><%= t('simple_form.labels.address.country_code') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @addresses.each do |address| %>
+      <tr>
+        <td><%= address.line1 %></td>
+        <td><%= address.line2 %></td>
+        <td><%= address.line3 %></td>
+        <td><%= address.state %></td>
+        <td><%= address.city %></td>
+        <td><%= address.postal_code %></td>
+        <td><%= address.country_code %></td>
+        <td><%= link_to t('actions.show'), address, class:'btn btn-default'  %></td>
+        <td><%= link_to edit_address_path(address), 
+          class:'btn btn-default ' do %>
+           <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+           <% end %>
+        </td>
+        <td><%= link_to  "/addresses/#{address.id}.json", method: :delete, remote: true, data: { confirm: '¿Está seguro?' },
+          class:'btn btn-danger delete-row ' do %>
+           <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+           <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <th><%= t('simple_form.labels.address.line1') %></th>
+      <th><%= t('simple_form.labels.address.line2') %></th>
+      <th><%= t('simple_form.labels.address.line3') %></th>
+      <th><%= t('simple_form.labels.address.state') %></th>
+      <th><%= t('simple_form.labels.address.city') %></th>
+      <th><%= t('simple_form.labels.address.postal_code') %></th>
+      <th><%= t('simple_form.labels.address.country_code') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </tfoot>
+
+</table>
+<%= paginate @addresses %>
+<br>
+

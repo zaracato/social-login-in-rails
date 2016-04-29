@@ -1,0 +1,36 @@
+
+          
+    <div class="panel-body">
+<% attributes.each do |attribute| -%>
+    <div class="form-group">
+  <% if attribute.password_digest? -%>
+      <%%= f.label :password, class:'col-sm-2 control-label' %>
+      <div class="col-sm-8">
+        <%%= f.password_field :password, class:'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%%= f.label :password_confirmation, class:'col-sm-2 control-label'  %>
+      <div class="col-sm-8">
+        <%%= f.password_field :password_confirmation, class:'form-control'  %>
+      </div>
+  <% else -%>
+    <%- if attribute.reference? -%>
+      <%%= f.label :<%= attribute.column_name %> , class:'col-sm-2 control-label' %>
+        <div class="col-sm-8">
+          <%%= f.collection_select :<%= attribute.column_name %>, <%= attribute.name.camelize %>.all, :id, :to_s, {prompt: true},{class:'form-control'}  %>
+        </div>
+    <%- else -%>
+      <%%= f.label :<%= attribute.name %>, class:'col-sm-2 control-label'  %>
+        <div class="col-sm-8">
+          <% if attribute.field_type.to_s == "date_select" %>
+              <%%= f.date_field :<%= attribute.name %>, class:'form-control calendar', type:'date' %>
+          <%else%>
+            <%%= f.<%= attribute.field_type %> :<%= attribute.name %>, class:'form-control' %>
+          <%- end -%>
+        </div>
+    <%- end -%>
+  <% end -%>
+    </div>
+  <% end -%>
+</div>

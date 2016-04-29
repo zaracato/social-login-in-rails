@@ -19,7 +19,19 @@ module SociaLoginRails
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+     config.generators do |g|
+        g.orm              :active_record
+        g.template_engine  :partial
+        g.test_framework   :test_unit, fixture: true
+        g.stylesheets      false
+        g.javascripts      false
 
+        g.fallbacks[:partial] = :erb
+
+     end
+     require 'ext/string'
+    require 'ext/true_class'
+    require 'ext/false_class'
     social_keys = File.join(Rails.root, 'config', 'social_keys.yml')
     CONFIG = HashWithIndifferentAccess.new(YAML::load(IO.read(social_keys)))[Rails.env]
     CONFIG.each do |k,v|
